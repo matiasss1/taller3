@@ -17,6 +17,7 @@ class Tabla extends React.Component{
  
         const res = await fetch(`${API}/users`);
         const data = await res.json();
+        // console.log(data)
         var resultadosBusqueda = data.filter((elemento)=>{  
 
         if (elemento.name.toString().toLowerCase().includes(busqueda.toLowerCase())) {
@@ -35,7 +36,7 @@ class Tabla extends React.Component{
         const res = await fetch(`${API}/users/Libros`);
         const data = await res.json();
 
-        // console.log(data)
+        console.log(data)
         var resultadosBusqueda = data.filter((elemento)=>{  
 
         if (elemento.Titulo.toString().toLowerCase().includes(busqueda.toLowerCase())) {
@@ -71,9 +72,9 @@ class Tabla extends React.Component{
                         <> {
                             this.state.usuarios.map((usuario, index)=>(
                                 <div className="p-4 mb-2 border rounded-4">
-                                    <div className="row " onClick={() => this.redir(usuario .name)}>
+                                    <div className="row " onClick={() => this.redir(usuario.name)}>
                                         <div className="col-sm-1">
-                                            <img src= {usuario.img} class="imgSearch     rounded-1" alt="fotoPerfil"/>
+                                            <img src= {usuario.img} height="150" width="150" class="img-fluid rounded-1" alt="fotoPerfil"/>
                                         </div>
                                         <div className="col">
                                             <h3>{usuario.name}</h3>
@@ -99,7 +100,7 @@ class Tabla extends React.Component{
                             <div class="p-4 mb-2 border rounded-4">
                                 <div className="row" onClick={() => this.redirInfo(libro._id)}>
                                     <div className="col-sm-1">
-                                        <img src= {libro.img} height="150" width="150" class="img-fluid rounded-1" alt="fotoPerfil"/>
+                                        <img src= {libro.img} height="150" width="150" class="img-fluid rounded-1" alt="fotoPLibro"/>
                                     </div>
                                     <div className="col">
                                         <h3>{libro.Titulo}</h3>
